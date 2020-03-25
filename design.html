@@ -1,0 +1,31 @@
+<div class="container-login100">
+	<div class="wrap-login100 leftBox">
+		Key Word:<input id = 'keyW' class = 'type' placeholder="Key Word" onkeyup="filterKey(this)">
+		Type:<select id = 'type' class = 'diff' onchange="filter(this)"><option value=""></option></select>
+		Difficulty:<select id = 'diff' class = 'diff' onchange="filter(this)">
+		  <option value="Easy">Easy</option>
+		  <option value="Medium">Medium</option>
+		  <option value="Hard">Hard</option>
+		</select>
+		<table id = "questionB">
+			<tr>
+				<th>Question</th>
+				<th>Type</th>
+				<th>Difficulty</th>
+			</tr>
+		</table>
+	</div>
+	<div class="wrap-login100 rightBox">
+		Name of the Exam:<input id = 'nameExam' class = 'type' placeholder="Exam Name" data-id="-1">
+		Exams:<select id = 'examEx' class = 'diff' onchange="popuExam(this)"><option value=""></option></select>
+		<table id = "questionExam">
+			<tr>
+				<th colspan="2">Question</th>
+				<th>Type</th>
+				<th>Points</th>
+			</tr>
+		</table>
+		<button onclick="saveExam()" class="buttBottom">Save</button>
+		<button onclick="designExam()" class="buttBottom" style="margin-right:10px;">Clear</button>
+	</div>
+</div>

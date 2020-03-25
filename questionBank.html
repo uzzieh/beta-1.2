@@ -1,0 +1,53 @@
+
+<div class="container-login100">
+	<div class="wrap-login100 leftBox">
+		Question:<textarea id = 'questionIn' class = 'feild' placeholder="Enter a question" data-id="-1"></textarea>
+		Type:<input id = 'typeIn' class = 'type' placeholder="Type, eg: list, loop">
+		Difficulty:<select id = 'diffIn' class = 'diff'>
+		  <option value="Easy">Easy</option>
+		  <option value="Medium">Medium</option>
+		  <option value="Hard">Hard</option>
+		</select>
+		Function Name:&nbsp;<input id = 'fName' class = 'type' placeholder="Primary Function">
+		Constraints:
+		<table id = "constraints" style="margin-bottom: 10px;">
+			<tr>
+				<th>For</th>
+				<th>While</th>
+				<th>Print</th>
+			</tr>
+			<tr>
+				<td><label class="switch"><input class="constraintsS" type="checkbox" data-type = "for"><span class="slider round"></span></label></td>
+				<td><label class="switch"><input class="constraintsS" type="checkbox" data-type = "while"><span class="slider round"></span></label></td>
+				<td><label class="switch"><input class="constraintsS" type="checkbox" data-type = "print"><span class="slider round"></span></label></td>
+			</tr>
+		</table>
+		Test Cases:
+		<table id = "testCaseTable">
+			<tr>
+				<th>Input</th>
+				<th>Output</th>
+			</tr>
+		</table>
+		<div id="add" style="float: left;"><button onclick="add()"><input type="image" src="images/icons/plus.png" height="13" width="13"></button></div>
+		<button onclick="save()" class="buttBottom">Save</button>
+		<button onclick="admin()" class="buttBottom" style="margin-right:10px;">Clear</button>
+	</div>
+	<div class="wrap-login100 rightBox">
+		Key Word:<input id = 'keyW' class = 'type' placeholder="Key Word" onkeyup="filterKey(this)">
+		Type:<select id = 'type' class = 'diff' onchange="filter(this)"><option value=""></option></select>
+		Difficulty:<select id = 'diff' class = 'diff' onchange="filter(this)">
+		  <option value="Easy">Easy</option>
+		  <option value="Medium">Medium</option>
+		  <option value="Hard">Hard</option>
+		</select>
+		<table id = "questionB">
+			<tr>
+				<th>Question</th>
+				<th>Type</th>
+				<th>Difficulty</th>
+			</tr>
+		</table>
+	</div>
+</div>
+
