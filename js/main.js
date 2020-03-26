@@ -373,6 +373,7 @@ function popuExam(e) {
     }
 }
 
+// Translated jQuery into JS from here on below -Usman
 function saveExam(){
     var name = document.getElementById("nameExam").value;
     var id = document.getElementById("nameExam").dataset.id;
@@ -385,7 +386,7 @@ function saveExam(){
     var data = '{"id":"'+id+'" , "name":"'+name+'" , "ques":"'+ques+'" , "status":"0"}';
     var dataJSON = JSON.stringify(data);
     getData(dataJSON,"php/addExam.php",function(resJSON){
-        $('#alertmsg').html('<div id="alerts"><span id="closebtn" onclick="closeAlert()">&times;</span>Successfully created an Exam!</div>');
+        document.querySelector('#alertmsg').html('<div id="alerts"><span id="closebtn" onclick="closeAlert()">&times;</span>Successfully created an Exam!</div>');
         console.log(resJSON);
         loadExam();
     });
@@ -393,11 +394,10 @@ function saveExam(){
 
 //Manage Exams  --  add submissions look up
 function manageExams() {
-    $.ajax({
-        url: "exams.html", 
+    fetch("exams.html"), 
         context: document.body,
         success: function(response) {
-            $("#subBody").html(response);
+            document.querySelector("#subBody").html(response);
             releaseManagement();
             examSubPopu();
         }
@@ -433,7 +433,7 @@ function saveRelease() {
         var dataJSON = JSON.stringify(data);
         getData(dataJSON,"php/addExam.php",function(resJSON){
             console.log(resJSON);
-            $('#alertmsg').html('<div id="alerts"><span id="closebtn" onclick="closeAlert()">&times;</span>Successfully released the exams to students!</div>');
+            document.querySelector('#alertmsg').html('<div id="alerts"><span id="closebtn" onclick="closeAlert()">&times;</span>Successfully released the exams to students!</div>');
         });
     }
 }
@@ -508,18 +508,17 @@ function releaseGrades(e){
     }
     var dataJSON = JSON.stringify('{"id":"'+e.dataset.subid+'" , "comments":"'+comments.substring(0,comments.length-1)+'" , "released":"1"}');
     getData(dataJSON,"php/saveExam.php",function(resJSON){
-        $('#alertmsg').html('<div id="alerts"><span id="closebtn" onclick="closeAlert()">&times;</span>Successfully released the score!</div>');
+        document.querySelector('#alertmsg').html('<div id="alerts"><span id="closebtn" onclick="closeAlert()">&times;</span>Successfully released the score!</div>');
         examSubPopu();
     });
 }
 
 //Student
 function examTaker() {
-    $.ajax({
-        url: "examTaker.html", 
+    fetch("examTaker.html"), 
         context: document.body,
         success: function(response) {
-            $("#subBody").html(response);
+            document.querySelector("#subBody").html(response);
             getExamData(function(ret) {
                 populateExamTaker();
             });
@@ -628,7 +627,7 @@ async function submitExam() {
     console.log(data);
     var dataJSON = JSON.stringify(data);
     getData(dataJSON,"php/saveExam.php",function(resJSON){
-        $('#alertmsg').html('<div id="alerts"><span id="closebtn" onclick="closeAlert()">&times;</span>Successfully submitted the exam!</div>');
+        document.querySelector('#alertmsg').html('<div id="alerts"><span id="closebtn" onclick="closeAlert()">&times;</span>Successfully submitted the exam!</div>');
     });
 }
 
@@ -699,11 +698,10 @@ async function testCode(fName, ans, testCases, pointPerQues,constrain) {
 
 //Check Grades
 function checkGrades() {
-    $.ajax({
-        url: "grades.html", 
+    fetch("grades.html"), 
         context: document.body,
         success: function(response) {
-            $("#subBody").html(response);
+            document.querySelector("#subBody").html(response);
             getExamData(function(ret) {
                 populateGrades();
             });
